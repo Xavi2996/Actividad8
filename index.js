@@ -7,7 +7,7 @@ const { error } = require('node:console');
 require('dotenv').config();
 
 //config DB
-
+require('./src/config/db')
 
 //server
 const server = http.createServer(app);

@@ -1,15 +1,23 @@
-// const ImuebleModel = require('../models/product.model');
+const ImuebleModel = require('../models/inmueble.model');
 
-const getInmueble = async(req, res) => {
-    // const products = await productModel.find();
-    // res.json(products);
-    res.json('GET');
+const getInmueble = async (req, res) => {
+    try {
+        const inmueble = await ImuebleModel.find();
+        res.json(inmueble);
+    } catch (error) {
+        res.json({fatal: error.message})
+    }
+
 }
 
-const createInmueble = async(req, res) => {
-    // const result = await productModel.create(req.body);
-    // res.json(result);
-    res.json('POST');
+const createInmueble = async (req, res) => {
+    try {
+        const result = await ImuebleModel.create(req.body);
+        res.json(result);
+    } catch (error) {
+        res.json({fatal: error.message})
+    }
+
 }
 
 const updateInmueble = async(req, res) => {
@@ -17,7 +25,7 @@ const updateInmueble = async(req, res) => {
     // try {
     //     //console.log(req.params);
     //     const {productsId} = req.params;
-    //     const result = await productModel.findByIdAndUpdate(productsId, req.body, {new: true});
+    //     const result = await ImuebleModel.findByIdAndUpdate(productsId, req.body, {new: true});
     //     res.json(result);
     // } catch (error) {
     //     res.json({fatal: error.message})
@@ -30,7 +38,7 @@ const deleteInmueble = async(req, res) => {
     //     try {
     //     //console.log(req.params);
     //     const {productsId} = req.params;
-    //     const result = await productModel.findByIdAndDelete(productsId, req.body, {new: true});
+    //     const result = await ImuebleModel.findByIdAndDelete(productsId, req.body, {new: true});
     //     res.json(result);
     // } catch (error) {
     //     res.json({fatal: error.message})
