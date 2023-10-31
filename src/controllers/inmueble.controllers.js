@@ -22,28 +22,26 @@ const createInmueble = async (req, res) => {
 
 const updateInmueble = async(req, res) => {
     
-    // try {
-    //     //console.log(req.params);
-    //     const {productsId} = req.params;
-    //     const result = await ImuebleModel.findByIdAndUpdate(productsId, req.body, {new: true});
-    //     res.json(result);
-    // } catch (error) {
-    //     res.json({fatal: error.message})
-    // }
-    res.json('PUT');
+    try {
+        //console.log(req.params);
+        const {inmuebleId} = req.params;
+        const result = await ImuebleModel.findByIdAndUpdate(inmuebleId, req.body, {new: true});
+        res.json(result);
+    } catch (error) {
+        res.json({fatal: error.message})
+    }
 
 }
 
 const deleteInmueble = async(req, res) => {
-    //     try {
-    //     //console.log(req.params);
-    //     const {productsId} = req.params;
-    //     const result = await ImuebleModel.findByIdAndDelete(productsId, req.body, {new: true});
-    //     res.json(result);
-    // } catch (error) {
-    //     res.json({fatal: error.message})
-    // }
-    res.json('DELTE');
+        try {
+        //console.log(req.params);
+        const {inmuebleId} = req.params;
+        const result = await ImuebleModel.findByIdAndDelete(inmuebleId, req.body, {new: true});
+        res.json(result);
+    } catch (error) {
+        res.json({fatal: error.message})
+    }
 }
 
 module.exports = {getInmueble, createInmueble, updateInmueble, deleteInmueble}
